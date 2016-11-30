@@ -22,11 +22,11 @@
 		A600C39B1DEEC73A00CD7E68 /* MGPhotoCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A600C3931DEEC73A00CD7E68 /* MGPhotoCollectionView.m */; };
 		A600C39C1DEEC73A00CD7E68 /* MGPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A600C3951DEEC73A00CD7E68 /* MGPhotoCollectionViewCell.m */; };
 		A600C39D1DEEC73A00CD7E68 /* MGPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A600C3971DEEC73A00CD7E68 /* MGPhotoModel.m */; };
-		A600C3A41DEECA7400CD7E68 /* CTActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A600C3A31DEECA7400CD7E68 /* CTActionSheet.m */; };
 		A600C3A81DEECB1700CD7E68 /* GDHGlobalUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A600C3A71DEECB1700CD7E68 /* GDHGlobalUtil.m */; };
 		A600C3AB1DEECDD300CD7E68 /* addimageshadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A600C3A91DEECDD300CD7E68 /* addimageshadow@2x.png */; };
 		A600C3AC1DEECDD300CD7E68 /* addimageshadow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A600C3AA1DEECDD300CD7E68 /* addimageshadow@3x.png */; };
 		A67E64EB1DEEFEF300355C1A /* MGPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67E64EA1DEEFEF300355C1A /* MGPhotoViewController.m */; };
+		A69466FE1DEF1E8C009C33E2 /* CTActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A69466FD1DEF1E8C009C33E2 /* CTActionSheet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,14 +74,14 @@
 		A600C3951DEEC73A00CD7E68 /* MGPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		A600C3961DEEC73A00CD7E68 /* MGPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPhotoModel.h; sourceTree = "<group>"; };
 		A600C3971DEEC73A00CD7E68 /* MGPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhotoModel.m; sourceTree = "<group>"; };
-		A600C3A21DEECA7400CD7E68 /* CTActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTActionSheet.h; sourceTree = "<group>"; };
-		A600C3A31DEECA7400CD7E68 /* CTActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTActionSheet.m; sourceTree = "<group>"; };
 		A600C3A61DEECB1700CD7E68 /* GDHGlobalUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDHGlobalUtil.h; sourceTree = "<group>"; };
 		A600C3A71DEECB1700CD7E68 /* GDHGlobalUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDHGlobalUtil.m; sourceTree = "<group>"; };
 		A600C3A91DEECDD300CD7E68 /* addimageshadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addimageshadow@2x.png"; sourceTree = "<group>"; };
 		A600C3AA1DEECDD300CD7E68 /* addimageshadow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addimageshadow@3x.png"; sourceTree = "<group>"; };
 		A67E64E91DEEFEF300355C1A /* MGPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPhotoViewController.h; sourceTree = "<group>"; };
 		A67E64EA1DEEFEF300355C1A /* MGPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhotoViewController.m; sourceTree = "<group>"; };
+		A69466FC1DEF1E8C009C33E2 /* CTActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTActionSheet.h; sourceTree = "<group>"; };
+		A69466FD1DEF1E8C009C33E2 /* CTActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTActionSheet.m; sourceTree = "<group>"; };
 		FFDE27622E79E54539F5753D /* Pods-MGPhotoCollectionViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGPhotoCollectionViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGPhotoCollectionViewDemo/Pods-MGPhotoCollectionViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,8 +204,6 @@
 				A600C3951DEEC73A00CD7E68 /* MGPhotoCollectionViewCell.m */,
 				A600C3961DEEC73A00CD7E68 /* MGPhotoModel.h */,
 				A600C3971DEEC73A00CD7E68 /* MGPhotoModel.m */,
-				A600C3A21DEECA7400CD7E68 /* CTActionSheet.h */,
-				A600C3A31DEECA7400CD7E68 /* CTActionSheet.m */,
 				A67E64E91DEEFEF300355C1A /* MGPhotoViewController.h */,
 				A67E64EA1DEEFEF300355C1A /* MGPhotoViewController.m */,
 			);
@@ -227,6 +225,8 @@
 		A600C3A51DEECADA00CD7E68 /* other */ = {
 			isa = PBXGroup;
 			children = (
+				A69466FC1DEF1E8C009C33E2 /* CTActionSheet.h */,
+				A69466FD1DEF1E8C009C33E2 /* CTActionSheet.m */,
 				A600C3A61DEECB1700CD7E68 /* GDHGlobalUtil.h */,
 				A600C3A71DEECB1700CD7E68 /* GDHGlobalUtil.m */,
 			);
@@ -427,12 +427,12 @@
 			files = (
 				A600C3621DEEC60100CD7E68 /* ViewController.m in Sources */,
 				A600C35F1DEEC60100CD7E68 /* AppDelegate.m in Sources */,
-				A600C3A41DEECA7400CD7E68 /* CTActionSheet.m in Sources */,
 				A600C39D1DEEC73A00CD7E68 /* MGPhotoModel.m in Sources */,
 				A600C3A81DEECB1700CD7E68 /* GDHGlobalUtil.m in Sources */,
 				A67E64EB1DEEFEF300355C1A /* MGPhotoViewController.m in Sources */,
 				A600C35C1DEEC60100CD7E68 /* main.m in Sources */,
 				A600C39C1DEEC73A00CD7E68 /* MGPhotoCollectionViewCell.m in Sources */,
+				A69466FE1DEF1E8C009C33E2 /* CTActionSheet.m in Sources */,
 				A600C39B1DEEC73A00CD7E68 /* MGPhotoCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
