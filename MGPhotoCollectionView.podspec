@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'MGPhotoCollectionView'
-s.version = '1.0.1'
+s.version = '1.0.2'
 s.license = 'MIT'
 s.summary = 'A MGPhotoCollectionView view on iOS.'
 s.homepage = 'https://github.com/gdhGaoFei/MGPhotoCollectionView'

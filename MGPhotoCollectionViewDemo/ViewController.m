@@ -104,7 +104,15 @@
 }
 //========= 2.点击图片
 -(void)collectionView:(MGPhotoCollectionView *)collectionView clickIndex:(NSInteger)index photoArray:(NSMutableArray<MGPhotoModel *> *)photoArray {
-    
+    if (photoArray.count > 0) {
+        MGPhotoViewController * vc = [[MGPhotoViewController alloc] init];
+        vc.dataArray = photoArray;
+        vc.clickIndex = index;
+        [self presentViewController:vc animated:YES completion:^{
+            
+        }];
+    }else{
+    }
 }
 
 //==========3.是否处于删除状态
