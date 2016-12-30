@@ -59,19 +59,28 @@
     _dataArray = dataArray;
     [self.photoDataArray removeAllObjects];
     NSMutableArray <MGPhotoModel *> * array = [NSMutableArray array];
-    if (self.isAddClickBtn) {
-        MGPhotoModel * firstModel = [MGPhotoModel CreateModelWithIcon:@"" withType:1 withImage:[UIImage imageNamed:@"addimageshadow"] withIsDelete:NO withIsModelType:YES];
+    if (self.isAddClickBtn && dataArray.count < self.maxPhotoNumber) {
+        MGPhotoModel * firstModel = [MGPhotoModel CreateModelWithIcon:@"" withType:1 withImage:[UIImage imageNamed:@"addimageshadow"] withIsDelete:NO withIsModelType:YES withUrl:@""];
         [array addObject:firstModel];
+    }else{//处于最大容量状态下
+        if (self.MaxPhotoNumberStateBlock) {
+            self.MaxPhotoNumberStateBlock();
+        }
+        if ([self.delegate respondsToSelector:@selector(MaxPhotoNumberState)]) {
+            [self.delegate MaxPhotoNumberState];
+        }
     }
     for (NSInteger i = (dataArray.count-1); i >= 0; i--) {
         MGPhotoModel * model = [self returnSelectModel:dataArray[i]];
-        model.isDelete = NO;
+        model.isDelete = self.isDeleteState;
         [array insertObject:model atIndex:0];
     }
     [self.photoDataArray addObjectsFromArray:array];
     [self loadCreateCollectionViewHeight];
 }
-
+- (void)setMaxPhotoNumber:(NSInteger)maxPhotoNumber {
+    _maxPhotoNumber = maxPhotoNumber;
+}
 -(void)setIsDelete:(BOOL)isDelete{
     _isDelete = isDelete;
     if (isDelete) {
@@ -118,17 +127,20 @@
  *设置页面的布局
  */
 -(void)loadCreateViewLayout {
+    
     //初始化
     self.isDeleteState = NO;
     self.isDelete      = YES;
     self.isAddClickBtn = YES;
+    self.maxPhotoNumber = 12;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editIsDeleteImageView) name:MGPhotoEditIsDeleteImgView object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endEditIsDeleteImageView) name:MGPhotoEndEditIsDeleteImgView object:nil];
 }
 
 -(NSMutableArray<MGPhotoModel *> *)photoDataArray{
     if (_photoDataArray == nil) {
-        MGPhotoModel * photoModel = [MGPhotoModel CreateModelWithIcon:@"" withType:1 withImage:[UIImage imageNamed:@"addimageshadow"] withIsDelete:NO withIsModelType:YES];
+        MGPhotoModel * photoModel = [MGPhotoModel CreateModelWithIcon:@"" withType:1 withImage:[UIImage imageNamed:@"addimageshadow"] withIsDelete:NO withIsModelType:YES withUrl:@""];
         _photoDataArray = [NSMutableArray arrayWithObject:photoModel];
     }
     return _photoDataArray;
@@ -143,17 +155,14 @@
     MGPhotoCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MGPhotoCollectionViewCell" forIndexPath:indexPath];
     
     MGPhotoModel * model = self.photoDataArray[indexPath.row];
-    if (model.image != nil) {
+    if (model.url.length > 0) {
+        [cell.iv sd_setImageWithURL:[NSURL URLWithString:model.url] placeholderImage:[UIImage imageNamed:@"loading"]];
+    }else if (model.image != nil) {
         cell.iv.image = model.image;
+    }else if (model.icon.length > 0){
+        cell.iv.image = [UIImage imageNamed:model.icon];
     }else{
-        if (model.icon.length <= 0) {
-            cell.iv.backgroundColor = [UIColor redColor];
-        }
-        if([model.icon rangeOfString:@"http"].location !=NSNotFound){
-            [cell.iv sd_setImageWithURL:[NSURL URLWithString:model.icon] placeholderImage:[UIImage imageNamed:@"gf_loading"]];
-        }else{
-            cell.iv.image = [UIImage imageNamed:model.icon];
-        }
+        cell.iv.backgroundColor = [UIColor redColor];
     }
     
     cell.isDeleteBtn.tag = indexPath.row+100;
@@ -179,6 +188,8 @@
             //结束删除
             if (array.count <= 0) {
                 [self endEditIsDeleteImageView];
+            }else{
+                self.dataArray = array;
             }
             
             index = index ==  self.photoDataArray.count-1 ? index-1 : index;
@@ -217,6 +228,7 @@
     
     if (self.isAddClickBtn) {
         if (indexPath.row == self.photoDataArray.count-1) {//添加照片
+            self.isDeleteState = NO;
             if (self.ReturnClickAddPhoto) {
                 self.ReturnClickAddPhoto(array, self);
             }
@@ -238,7 +250,7 @@
 }
 
 -(MGPhotoModel *)returnSelectModel:(MGPhotoModel *)model{
-    MGPhotoModel * photo = [MGPhotoModel CreateModelWithIcon:model.icon withType:model.type withImage:model.image withIsDelete:model.isDelete withIsModelType:model.isModelType];
+    MGPhotoModel * photo = [MGPhotoModel CreateModelWithIcon:model.icon withType:model.type withImage:model.image withIsDelete:model.isDelete withIsModelType:model.isModelType withUrl:model.url];
     
     return photo;
 }
@@ -254,16 +266,16 @@
             [array addObject:[self returnSelectModel:model]];
         }
     }
-
+    
     if (self.ReturnClickIsDeleteState) {//处于删除状态
         self.ReturnClickIsDeleteState(YES, self, array);
     }
+    
     if ([self.delegate respondsToSelector:@selector(collectionView:isDeleteState: photoArray:)]) {
         [self.delegate collectionView:self isDeleteState:YES photoArray:array];
     }
     
     [self loadCreateTapGes];
-    
     [self.collectionView reloadData];
 }
 //====== 结束删除 ImageView ======
@@ -314,13 +326,15 @@
     if (longPress.state == UIGestureRecognizerStateBegan) {
         CGPoint point = [longPress locationInView:self];
         indexPath = [self.collectionView indexPathForItemAtPoint:point];
-        if (indexPath.row == self.photoDataArray.count-1) {
-        }else if (indexPath == nil) {
+        if (indexPath != nil) {
+            MGPhotoModel * model = self.photoDataArray[indexPath.row];
+            if (!model.isDelete) {
+                //开始编辑
+                [self editIsDeleteImageView];
+            }
+        }else{
             //完成编辑
             [self endEditIsDeleteImageView];
-        }else{
-            //开始编辑
-            [self editIsDeleteImageView];
         }
     }
 }

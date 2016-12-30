@@ -10,6 +10,7 @@
 #import "MGPhotoCollectionView.h"
 #import "GDHGlobalUtil.h"
 #import "MGPhotoViewController.h"
+#import "LTAlertView.h"
 
 @interface ViewController ()<MGPhotoCollectionViewDelegate>
 
@@ -34,6 +35,7 @@
     
     //设置照片容器
     self.collectionView.lineCounts = 5;
+    self.collectionView.maxPhotoNumber = 3;
     self.collectionViewLayoutHeight.constant = [self.collectionView ReturnViewHeight];
     //点击其他方面的按钮
     self.collectionView.ReturnClickIndexAndArray = ^(NSInteger index, NSArray <MGPhotoModel *> * photoArray, MGPhotoCollectionView * collectionView){
@@ -59,6 +61,16 @@
             
         }
     };
+    /**!
+     * 处于最多照片个数状态下 剩下的就交给各位处理啦 一般是给个提示
+     */
+    self.collectionView.MaxPhotoNumberStateBlock = ^{
+        [LTAlertView showTitle:@"警告" message:@"添加照片已达到最大数,是否进行删除?" ButtonTitles:@[@"不删除", @"删除"] OnTapBlock:^(LTAlertView *alert, NSInteger num) {
+            if (num == 1) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:MGPhotoEditIsDeleteImgView object:nil];
+            }
+        }];
+    };
 }
 
 /**!
@@ -70,7 +82,7 @@
     [self.currentPhotoArray addObjectsFromArray:photoArray];
     [[GDHGlobalUtil ShareGDHGlobalUtil] TransferCameraWithViewController:self ImageBlock:^(UIImage *image) {
         self.collectionViewLayoutHeight.constant = [self.collectionView ReturnViewHeight];
-        MGPhotoModel * photo = [MGPhotoModel CreateModelWithIcon:@"" withType:2 withImage:image withIsDelete:NO withIsModelType:NO];
+        MGPhotoModel * photo = [MGPhotoModel CreateModelWithIcon:@"" withType:2 withImage:image withIsDelete:NO withIsModelType:NO withUrl:@""];
         [self.currentPhotoArray addObject:photo];
         self.collectionView.dataArray = self.currentPhotoArray;
         self.collectionViewLayoutHeight.constant = [self.collectionView ReturnViewHeight];
@@ -97,7 +109,7 @@
     [self.daimaCurrentPhotoArray removeAllObjects];
     [self.daimaCurrentPhotoArray addObjectsFromArray:photoArray];
     [[GDHGlobalUtil ShareGDHGlobalUtil] TransferCameraWithViewController:self ImageBlock:^(UIImage *image) {
-        MGPhotoModel * photo = [MGPhotoModel CreateModelWithIcon:@"" withType:2 withImage:image withIsDelete:NO withIsModelType:NO];
+        MGPhotoModel * photo = [MGPhotoModel CreateModelWithIcon:@"" withType:2 withImage:image withIsDelete:NO withIsModelType:NO withUrl:@""];
         [self.daimaCurrentPhotoArray addObject:photo];
         self.daimaCollectionView.dataArray = self.daimaCurrentPhotoArray;
     }];
@@ -129,6 +141,17 @@
  */
 -(void)collectionView:(MGPhotoCollectionView *)collectionView photoArray:(NSMutableArray <MGPhotoModel *>*)photoArray nextIndex:(NSInteger)nextIndex {
     
+}
+
+/**!
+ * 处于最多照片个数状态下 剩下的就交给各位处理啦 一般是给个提示
+ */
+- (void)MaxPhotoNumberState {
+    [LTAlertView showTitle:@"警告" message:@"添加照片已达到最大数,是否进行删除?" ButtonTitles:@[@"不删除", @"删除"] OnTapBlock:^(LTAlertView *alert, NSInteger num) {
+        if (num == 1) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:MGPhotoEditIsDeleteImgView object:nil];
+        }
+    }];
 }
 
 #pragma mark ====== // 懒加载 \\ ========

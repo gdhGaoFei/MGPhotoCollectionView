@@ -38,6 +38,11 @@ static NSString * const MGPhotoEndEditIsDeleteImgView = @"MGPhotoEndEditIsDelete
  */
 -(void)collectionView:(MGPhotoCollectionView *)collectionView photoArray:(NSMutableArray <MGPhotoModel *>*)photoArray nextIndex:(NSInteger)nextIndex;
 
+/**!
+ * 处于最多照片个数状态下 剩下的就交给各位处理啦 一般是给个提示
+ */
+- (void)MaxPhotoNumberState;
+
 @end
 
 @interface MGPhotoCollectionView : UIView
@@ -97,5 +102,14 @@ static NSString * const MGPhotoEndEditIsDeleteImgView = @"MGPhotoEndEditIsDelete
  */
 @property (nonatomic, assign) BOOL isAddClickBtn;
 
+/**!
+ * 最多照片的个数 默认是12个
+ */
+@property (nonatomic, assign) NSInteger maxPhotoNumber;
+
+/**!
+ * 处于最多照片个数状态下 剩下的就交给各位处理啦 一般是给个提示
+ */
+@property (nonatomic, copy) void(^MaxPhotoNumberStateBlock)();
 
 @end

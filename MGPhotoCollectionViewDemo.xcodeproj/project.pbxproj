@@ -25,6 +25,7 @@
 		A600C3A81DEECB1700CD7E68 /* GDHGlobalUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A600C3A71DEECB1700CD7E68 /* GDHGlobalUtil.m */; };
 		A600C3AB1DEECDD300CD7E68 /* addimageshadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A600C3A91DEECDD300CD7E68 /* addimageshadow@2x.png */; };
 		A600C3AC1DEECDD300CD7E68 /* addimageshadow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A600C3AA1DEECDD300CD7E68 /* addimageshadow@3x.png */; };
+		A643C1F01E15F3A300DE7846 /* LTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A643C1EF1E15F3A300DE7846 /* LTAlertView.m */; };
 		A67E64EB1DEEFEF300355C1A /* MGPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67E64EA1DEEFEF300355C1A /* MGPhotoViewController.m */; };
 		A69466FE1DEF1E8C009C33E2 /* CTActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A69466FD1DEF1E8C009C33E2 /* CTActionSheet.m */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,8 @@
 		A600C3A71DEECB1700CD7E68 /* GDHGlobalUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDHGlobalUtil.m; sourceTree = "<group>"; };
 		A600C3A91DEECDD300CD7E68 /* addimageshadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addimageshadow@2x.png"; sourceTree = "<group>"; };
 		A600C3AA1DEECDD300CD7E68 /* addimageshadow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addimageshadow@3x.png"; sourceTree = "<group>"; };
+		A643C1EE1E15F3A300DE7846 /* LTAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTAlertView.h; sourceTree = "<group>"; };
+		A643C1EF1E15F3A300DE7846 /* LTAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTAlertView.m; sourceTree = "<group>"; };
 		A67E64E91DEEFEF300355C1A /* MGPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPhotoViewController.h; sourceTree = "<group>"; };
 		A67E64EA1DEEFEF300355C1A /* MGPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhotoViewController.m; sourceTree = "<group>"; };
 		A69466FC1DEF1E8C009C33E2 /* CTActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTActionSheet.h; sourceTree = "<group>"; };
@@ -225,6 +228,8 @@
 		A600C3A51DEECADA00CD7E68 /* other */ = {
 			isa = PBXGroup;
 			children = (
+				A643C1EE1E15F3A300DE7846 /* LTAlertView.h */,
+				A643C1EF1E15F3A300DE7846 /* LTAlertView.m */,
 				A69466FC1DEF1E8C009C33E2 /* CTActionSheet.h */,
 				A69466FD1DEF1E8C009C33E2 /* CTActionSheet.m */,
 				A600C3A61DEECB1700CD7E68 /* GDHGlobalUtil.h */,
@@ -303,7 +308,7 @@
 				TargetAttributes = {
 					A600C3561DEEC60100CD7E68 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = XQAXV8H896;
+						DevelopmentTeam = 3858N9SG7V;
 						ProvisioningStyle = Automatic;
 					};
 					A600C36F1DEEC60100CD7E68 = {
@@ -434,6 +439,7 @@
 				A600C39C1DEEC73A00CD7E68 /* MGPhotoCollectionViewCell.m in Sources */,
 				A69466FE1DEF1E8C009C33E2 /* CTActionSheet.m in Sources */,
 				A600C39B1DEEC73A00CD7E68 /* MGPhotoCollectionView.m in Sources */,
+				A643C1F01E15F3A300DE7846 /* LTAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +512,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -553,6 +560,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -581,7 +589,7 @@
 			baseConfigurationReference = 8C31EB61B047CE18F8F86EF7 /* Pods-MGPhotoCollectionViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XQAXV8H896;
+				DEVELOPMENT_TEAM = 3858N9SG7V;
 				INFOPLIST_FILE = MGPhotoCollectionViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -595,7 +603,7 @@
 			baseConfigurationReference = FFDE27622E79E54539F5753D /* Pods-MGPhotoCollectionViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XQAXV8H896;
+				DEVELOPMENT_TEAM = 3858N9SG7V;
 				INFOPLIST_FILE = MGPhotoCollectionViewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
