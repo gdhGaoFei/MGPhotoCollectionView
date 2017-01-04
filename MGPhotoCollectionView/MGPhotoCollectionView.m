@@ -69,6 +69,7 @@
         if ([self.delegate respondsToSelector:@selector(MaxPhotoNumberState)]) {
             [self.delegate MaxPhotoNumberState];
         }
+        self.isDeleteState = YES;
     }
     for (NSInteger i = (dataArray.count-1); i >= 0; i--) {
         MGPhotoModel * model = [self returnSelectModel:dataArray[i]];
