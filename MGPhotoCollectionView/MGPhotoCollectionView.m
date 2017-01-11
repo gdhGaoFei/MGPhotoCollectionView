@@ -157,7 +157,7 @@
     
     MGPhotoModel * model = self.photoDataArray[indexPath.row];
     if (model.url.length > 0) {
-        [cell.iv sd_setImageWithURL:[NSURL URLWithString:model.url] placeholderImage:[UIImage imageNamed:@"loading"]];
+        [cell.iv sd_setImageWithURL:[NSURL URLWithString:model.url] placeholderImage:[UIImage imageNamed:@"gf_loading"]];
     }else if (model.image != nil) {
         cell.iv.image = model.image;
     }else if (model.icon.length > 0){

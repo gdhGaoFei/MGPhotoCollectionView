@@ -28,6 +28,8 @@
 		A643C1F01E15F3A300DE7846 /* LTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A643C1EF1E15F3A300DE7846 /* LTAlertView.m */; };
 		A67E64EB1DEEFEF300355C1A /* MGPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A67E64EA1DEEFEF300355C1A /* MGPhotoViewController.m */; };
 		A69466FE1DEF1E8C009C33E2 /* CTActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A69466FD1DEF1E8C009C33E2 /* CTActionSheet.m */; };
+		A6DBF4DE1E2659EC00D2388E /* gf_loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6DBF4DC1E2659EC00D2388E /* gf_loading@2x.png */; };
+		A6DBF4DF1E2659EC00D2388E /* gf_loading@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6DBF4DD1E2659EC00D2388E /* gf_loading@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		A67E64EA1DEEFEF300355C1A /* MGPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPhotoViewController.m; sourceTree = "<group>"; };
 		A69466FC1DEF1E8C009C33E2 /* CTActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTActionSheet.h; sourceTree = "<group>"; };
 		A69466FD1DEF1E8C009C33E2 /* CTActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTActionSheet.m; sourceTree = "<group>"; };
+		A6DBF4DC1E2659EC00D2388E /* gf_loading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gf_loading@2x.png"; sourceTree = "<group>"; };
+		A6DBF4DD1E2659EC00D2388E /* gf_loading@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gf_loading@3x.png"; sourceTree = "<group>"; };
 		FFDE27622E79E54539F5753D /* Pods-MGPhotoCollectionViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGPhotoCollectionViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGPhotoCollectionViewDemo/Pods-MGPhotoCollectionViewDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,6 +220,8 @@
 		A600C38E1DEEC73A00CD7E68 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A6DBF4DC1E2659EC00D2388E /* gf_loading@2x.png */,
+				A6DBF4DD1E2659EC00D2388E /* gf_loading@3x.png */,
 				A600C3A91DEECDD300CD7E68 /* addimageshadow@2x.png */,
 				A600C3AA1DEECDD300CD7E68 /* addimageshadow@3x.png */,
 				A600C38F1DEEC73A00CD7E68 /* gfdelete_error.png */,
@@ -355,9 +361,11 @@
 				A600C3671DEEC60100CD7E68 /* Assets.xcassets in Resources */,
 				A600C39A1DEEC73A00CD7E68 /* gfdelete_error@3x.png in Resources */,
 				A600C3991DEEC73A00CD7E68 /* gfdelete_error@2x.png in Resources */,
+				A6DBF4DF1E2659EC00D2388E /* gf_loading@3x.png in Resources */,
 				A600C3AC1DEECDD300CD7E68 /* addimageshadow@3x.png in Resources */,
 				A600C3981DEEC73A00CD7E68 /* gfdelete_error.png in Resources */,
 				A600C3651DEEC60100CD7E68 /* Main.storyboard in Resources */,
+				A6DBF4DE1E2659EC00D2388E /* gf_loading@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
