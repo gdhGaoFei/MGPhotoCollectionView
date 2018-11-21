@@ -219,6 +219,19 @@
     return UIEdgeInsetsMake(kCellPath, kCellPath, kCellPath, kCellPath);
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    MGPhotoModel * model = self.photoDataArray[indexPath.row];
+    if (model.isDelete) {///处于删除状态 不理会
+        return;
+    }
+    
+    if (self.isDeleteState) {///处于删除状态
+#warning ///删除状态下 添加 删除逻辑
+        if (self.MaxPhotoNumberStateBlock) {
+            self.MaxPhotoNumberStateBlock();
+        }
+        return;
+    }
+    
     NSMutableArray <MGPhotoModel *>* array = [NSMutableArray array];
     for (MGPhotoModel * photo in self.photoDataArray) {
         if (photo.isModelType) {
@@ -257,7 +270,7 @@
 }
 
 //====== 开始删除 ImageView ====
--(void)editIsDeleteImageView{
+-(void)editIsDeleteImageView {
     NSMutableArray <MGPhotoModel *>* array = [NSMutableArray array];
     
     for (MGPhotoModel * model in self.photoDataArray) {
@@ -282,14 +295,15 @@
 //====== 结束删除 ImageView ======
 -(void)endEditIsDeleteImageView{
     NSMutableArray <MGPhotoModel *>* array = [NSMutableArray array];
-
     for (MGPhotoModel * model in self.photoDataArray) {
-        if (!model.isModelType) {
-            model.isDelete = NO;
-            self.isDeleteState = NO;
-            [array addObject:[self returnSelectModel:model]];
+        if (model.isModelType) {
+            continue;
         }
+        model.isDelete = NO;
+        [array addObject:[self returnSelectModel:model]];
     }
+    self.isDeleteState = (array.count >= self.maxPhotoNumber);
+    
     
     //block 返回是否删除状态
     if (self.ReturnClickIsDeleteState) {//处于非删除状态
